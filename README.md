@@ -7,7 +7,6 @@ Implement a RESTful Web Service for your online store.  The product and user dat
 1. MySQL - for storing and retrieving data in the to and from your model.
 2. Java
    - JDBC - to connect your Data Access Object layer classes to your MySQL database. 
-      - [Spring JDBC tutorial] ()
    - [Jersey] (https://jersey.github.io/) RESTful Web Services framework - standard and portable JAX-RS API 
 3. Apache Tomcat - to run your RESTful Web Service
 4. [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) (or similar) - to test your REST API implementation
@@ -29,7 +28,7 @@ The core of this project revolves around your RESTful Web Service taking the giv
   - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers/jdoe
 ```
 Request: GET /customers/{username}
-Request body: (empty)
+Request params: (empty)
 Response body:
 {
     "fname": "Jane",
@@ -42,7 +41,7 @@ Response body:
   - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers?fname=Jane&lname=Doe&username=jdoe&email=jdoe@gmail.com
 ```
 Request: POST /customers
-Request body:
+Request params:
 {
     "fname": "Jane",
     "lname": "Doe",
@@ -57,7 +56,7 @@ Response body: (empty)
 - update user
 ```
 Request: PUT /customers
-Request body:
+Request params:
 {
     "fname": "Jane",
     "lname": "Doe",
@@ -70,14 +69,14 @@ Response body: (empty)
 - delete user
 ```
 Request: DELETE /customers/{username}
-Request body: (empty)
+Request params: (empty)
 Response body: (empty)
 ```
 
 - list all items
 ```
 Request: GET /items
-Request body: (empty)
+Request params: (empty)
 Response body:
 [
 {
@@ -110,7 +109,7 @@ Response body:
 - list items by keyword
 ```
 Request: GET /items/search/{keyword}
-Request body: (empty)
+Request params: (empty)
 Response body:
 [
 {
@@ -143,7 +142,7 @@ Response body:
 - list item by id
 ```
 Request: GET /items/{id}
-Request body: (empty)
+Request params: (empty)
 Response body:
 {
        "itemId": 107,
@@ -162,7 +161,7 @@ Response body:
 - add item to shoping cart (Hint: If no current cart exists for this user, create a cart first).
 ```
 Request: POST /carts
-Request body:
+Request params:
 {
     "productId": 123,
     "username": "jdoe"
@@ -173,7 +172,7 @@ Response body: (empty)
 - show user's shopping cart
 ```
 Request: GET /carts
-Request body:
+Request params:
 {
     "username: "jdoe",
 }
@@ -202,7 +201,7 @@ Response body:
 - remove item from shopping cart
 ```
 Request: DELETE /carts
-Request body:
+Request params:
 {
    "cartId": 002,
    "productId":123
@@ -213,7 +212,7 @@ Response body: (empty)
 - buy item (adjust shopping cart status and product list/count)
 ```
 Request: PUT /carts/purchase/{cartId}
-Request body: (empty)
+Request params: (empty)
 Response body: (empty)
 ```
 
@@ -221,24 +220,16 @@ Response body: (empty)
 - list users who bought a specific product
 ```
 Request: GET /carts
-Request body:
+Request params:
 {
   "productID":123
-}
-Response body: (empty)
-```
-- list products bought by a user
-```
-Request: GET /carts
-Request body:
-{ 
-    "username: "jdoe"
 }
 Response body: (empty)
 ```
 
 ### Tutorials
 - REST Best practices - https://code-maze.com/top-rest-api-best-practices/
+- JAX-RS params - https://www.mkyong.com/webservices/jax-rs/jax-rs-queryparam-example/ 
 
 ### Submission
 
@@ -246,4 +237,3 @@ Response body: (empty)
    - Do NOT make changes after the deadline. We will use the final timestamp as the submission time.
    - If you are not using Maven as your build tool, you must submit a comparable config file and clear, complete steps to build.
 2. In Canvas, provide your GitHub username and a link to this project’s repository.
-
