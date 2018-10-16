@@ -189,6 +189,7 @@ Response body: (empty)
 
 
 - list users who bought a specific product
+    EXAMPLE: /carts?productId=1
 ```
 Request: GET /carts
 Query params:
@@ -204,8 +205,6 @@ Response body:
         "email": "jdoe@gmail.com"
     }
 ]
-
-EXAMPLE: /carts?productId=1
 ```
 
 ### Submission
