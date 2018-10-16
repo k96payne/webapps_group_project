@@ -19,7 +19,7 @@ Response body:
   - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers?fname=Jane&lname=Doe&username=jdoe&email=jdoe@gmail.com
 ```
 Request: POST /customers
-Request params:
+Request body:
 {
     "fname": "Jane",
     "lname": "Doe",
@@ -32,7 +32,7 @@ Response body: (empty)
 - update user
 ```
 Request: PUT /customers
-Request params:
+Request body:
 {
     "fname": "Jane",
     "lname": "Doe",
@@ -177,7 +177,7 @@ Response body:
 - remove item from shopping cart
 ```
 Request: DELETE /carts
-Request params:
+Request body:
 {
    "cartId": 002,
    "productId":123
