@@ -29,8 +29,6 @@ Request params:
 Response body: (empty)
 ```
 
-#### Additional REST API function
-
 - update user
 ```
 Request: PUT /customers
