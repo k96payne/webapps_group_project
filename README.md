@@ -1,28 +1,6 @@
 # Individual Programming Project #1
 
-### Description
-Implement a RESTful Web Service for your online store.  The product and user data is stored on your company's local servers, and you will provide customers the ability to sign up for accounts, search products and place orders.
-
-### Technologies and Languages needed
-1. MySQL - for storing and retrieving data in the to and from your model.
-2. Java
-   - JDBC - to connect your Data Access Object layer classes to your MySQL database. 
-   - [Jersey] (https://jersey.github.io/) RESTful Web Services framework - standard and portable JAX-RS API 
-3. Apache Tomcat - to run your RESTful Web Service
-4. [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) (or similar) - to test your REST API implementation
-
-### Assignment
-1. GitHub - Clone shared, public repository and create personal, private repository for this project.
-2. MySQL set up
-   - See { spring tutorial } for database and user set up instructions
-```
-spring.datasource.url=jdbc:mysql://localhost:3306/db_store
-spring.datasource.username=springuser
-spring.datasource.password=ThePassword
-```
-
-3. Implement the following REST API
-The core of this project revolves around your RESTful Web Service taking the given input and returning the expected content.  The implementation of your controller(s), data access layer, and model will vary from student to student.
+The following are examples on how to use the REST api:
 
 - lookup user
   - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers/jdoe
