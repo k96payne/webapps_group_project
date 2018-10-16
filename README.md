@@ -137,7 +137,7 @@ Response body:
 Request: POST /carts
 Request body:
 {
-    "productId": 123,
+    "productId": 1,
     "username": "jdoe"
 }
 Response body: (empty)
@@ -150,16 +150,16 @@ Request params: (empty)
 Response body:
 [
 {
-   "cartId": 002,
+   "cartId": 2,
    "items":[
      {
-      "productId":123,
+      "productId":1,
       "productName": "Blue sweater",
       "msrp": 20.99,
       "salePrice": 15.99
      },
      {
-      "productId":125,
+      "productId":8,
       "productName": "Red sweater",
       "msrp": 20.99,
       "salePrice": 15.99
