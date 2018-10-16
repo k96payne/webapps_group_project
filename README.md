@@ -32,10 +32,10 @@ Response body: (empty)
 Request: PUT /customers
 Request body:
 {
-    "fname": "Jane",
-    "lname": "Doe",
+    "fname": "John",
+    "lname": "Dove",
     "username": "jdoe",
-    "email": "jdoe@gmail.com"
+    "email": "jdove@gmail.com"
 }
 Response body: (empty)
 ```
