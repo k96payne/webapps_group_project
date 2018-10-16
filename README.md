@@ -135,7 +135,7 @@ Response body:
 - add item to shoping cart (Hint: If no current cart exists for this user, create a cart first).
 ```
 Request: POST /carts
-Request params:
+Request body:
 {
     "productId": 123,
     "username": "jdoe"
