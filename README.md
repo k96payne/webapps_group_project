@@ -191,11 +191,21 @@ Response body: (empty)
 - list users who bought a specific product
 ```
 Request: GET /carts
-Request params:
+Query params:
 {
-  "productID":123
+  "productID":1
 }
-Response body: (empty)
+Response body:
+[
+    {
+        "fname": "Jane",
+        "lname": "Doe",
+        "username": "jdoe",
+        "email": "jdoe@gmail.com"
+    }
+]
+
+EXAMPLE: /carts?productId=1
 ```
 
 ### Submission
