@@ -145,11 +145,8 @@ Response body: (empty)
 
 - show user's shopping cart
 ```
-Request: GET /carts
-Request params:
-{
-    "username: "jdoe",
-}
+Request: GET /carts/{username}
+Request params: (empty)
 Response body:
 [
 {
