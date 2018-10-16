@@ -174,8 +174,8 @@ Response body:
 Request: DELETE /carts
 Request body:
 {
-   "cartId": 002,
-   "productId":123
+   "cartId": 2,
+   "productId":1
 }
 Response body: (empty)
 ```
