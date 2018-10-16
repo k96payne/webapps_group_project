@@ -3,7 +3,6 @@
 The following are examples on how to use the REST api:
 
 - lookup user
-  - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers/jdoe
 ```
 Request: GET /customers/{username}
 Request params: (empty)
