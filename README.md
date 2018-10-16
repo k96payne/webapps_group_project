@@ -16,7 +16,6 @@ Response body:
 }
 ```
 - create user 
-  - Postman Example URI: http://localhost:8080/< yourAppName >/store/customers?fname=Jane&lname=Doe&username=jdoe&email=jdoe@gmail.com
 ```
 Request: POST /customers
 Request body:
@@ -202,10 +201,6 @@ Request params:
 }
 Response body: (empty)
 ```
-
-### Tutorials
-- REST Best practices - https://code-maze.com/top-rest-api-best-practices/
-- JAX-RS params - https://www.mkyong.com/webservices/jax-rs/jax-rs-queryparam-example/ 
 
 ### Submission
 
