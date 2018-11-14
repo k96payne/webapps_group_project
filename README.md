@@ -1,4 +1,4 @@
-# Individual Programming Project #1
+# Individual Programming Project #2
 
 The following are examples on how to use the REST api:
 
@@ -207,9 +207,14 @@ Response body:
 ]
 ```
 
-### Submission
+- list users who bought a specific product
+    EXAMPLE: /carts?productId=1
+```
+Request: GET /carts/purchased/{username}
+Query params: none
+Response body:
+[
+   ...
+]
+```
 
-1. In GitHub, upload all code, and add the TAs as collaborators (CIS4930WepAppTA).
-   - Do NOT make changes after the deadline. We will use the final timestamp as the submission time.
-   - If you are not using Maven as your build tool, you must submit a comparable config file and clear, complete steps to build.
-2. In Canvas, provide your GitHub username and a link to this project’s repository.
