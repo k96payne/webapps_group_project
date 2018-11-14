@@ -17,10 +17,9 @@ public class CartDao {
 	private static final CartQueryMaker QUERY_MAKER = new CartQueryMaker();
 
 	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-	private static final String DB_USERNAME = "root";
-	private static final String DB_PASSWORD = "password";
-	private static final String URL = "jdbc:mysql://localhost:3306/store?useSSL="
-			+ "false&allowPublicKeyRetrieval=true";
+	private static final String DB_USERNAME = "springuser";
+	private static final String DB_PASSWORD = "ThePassword";
+	private static final String URL = "jdbc:mysql://localhost:3306/db_store";
 	
 	private JdbcTemplate template;
 	
