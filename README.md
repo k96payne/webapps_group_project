@@ -1,5 +1,8 @@
 # Individual Programming Project #2
 
+NOTE: I used my own implemented API for this project
+NOTE: You can find my submission folder in /kylePayneSubmission
+
 The following are examples on how to use the REST api:
 
 - lookup user
