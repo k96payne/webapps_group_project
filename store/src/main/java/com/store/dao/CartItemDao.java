@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.store.model.CartItem;
+import com.store.model.Item;
 import com.store.model.User;
 import com.store.model.mapper.CartItemMapper;
 import com.store.queryMaker.CartItemQueryMaker;
@@ -46,7 +47,7 @@ public class CartItemDao {
 			cartDao.createCart(username);
 		}
 		template.execute(QUERY_MAKER.makeAddCartItemQuery(cartDao.getUserCartID(username),
-				productId, username));
+				productId, username, ItemDao.newItemDao().getItemById(productId).getShortDescription()));
 	}
 	
 	public Collection<CartItem> getCartItemsByUsername(final String username) {
@@ -80,5 +81,10 @@ public class CartItemDao {
 			users.add(userDao.getUserByUsername(item.getUsername()));
 		}
 		return users;
+	}
+	
+	public Collection<CartItem> getCartItemsPurchasedByUser(final String username) {
+		return template.query(QUERY_MAKER.makeGetCartItemsPurchasedByUserQUery(username), 
+				new CartItemMapper());
 	}
 }

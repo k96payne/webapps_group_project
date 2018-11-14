@@ -12,7 +12,8 @@ public class CartItemMapper implements RowMapper<CartItem> {
 
 	@Override
 	public CartItem mapRow(ResultSet rs, int rowNum) throws SQLException {
-		return new CartItem(rs.getInt("cartId"), rs.getString("username"), rs.getInt("itemId"));
+		return new CartItem(rs.getInt("cartId"), rs.getString("username"), rs.getInt("itemId"), 
+				rs.getString("itemName"));
 	}
 	
 }

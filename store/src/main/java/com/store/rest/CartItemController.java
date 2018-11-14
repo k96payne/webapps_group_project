@@ -66,4 +66,11 @@ private static final long serialVersionUID = 1L;
 	public String getUsersWhoPurchasedProduct(@QueryParam("productId") final int productId) {
 		return cartItemService.getUsersWhoPurchasedProduct(productId);
 	}
+	
+	@GET
+	@Path("/purchased/{username}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getItemsPurchasedByUser(@PathParam("username") final String username) {
+		return cartItemService.getItemsPurchasedByUser(username);
+	}
 }

@@ -19,7 +19,7 @@
 
 	<title>Store</title>
 </head>
-<body onload="generateDetails();">
+<body onload="generateProductDetails();">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,31 +37,31 @@
 					<a class="nav-link hvr-grow" href="account.html">Account</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link hvr-grow" href="#"><i class="fas fa-shopping-cart"></i></a>
+					<a class="nav-link hvr-grow" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container" id="product">
 		<div class="row">
-			<div class="col-lg p-5" align="right" onclick="goToDetailsView('orange shirt xsmall female')">
-				<i class="fas fa-tshirt fa-10x"></i>
+			<div class="col-lg p-5 align-middle" align="center">
+				<i class="fas fa-tshirt" style="font-size:20rem;"></i>
 			</div>
-			<div class="col-md p-5">
-				<h3 id="itemName">Item Name: </h3>
-				<h3 id="msrp">MSRP: </h3>
-				<h3 id="salePrice">Sale Price: </h3>
-				<h3 id="description">Description: </h3>
-				<h3 id="brandName">Brand Name: </h3>
-				<h3 id="size">Size: </h3>
-				<h3 id="color">Color: </h3>
-				<h3 id="gender">Gender: </h3>
+			<div class="col-lg p-5">
+				<h3>Item Name </h3><div id="itemName"></div>
+				<h3>MSRP </h3><div id="msrp"></div>
+				<h3>Sale Price </h3><div id="salePrice"></div>
+				<h3>Description </h3><div id="description"></div>
+				<h3>Brand Name </h3><div id="brandName"></div>
+				<h3>Size </h3><div id="size"></div>
+				<h3>Color </h3><div id="color"></div>
+				<h3>Gender </h3><div id="gender"></div>
 			</div>
 		</div>
 		<div class="row" align="center">
 			<div class="col-lg">
-			  <a class="btn btn-secondary btn-lg" style="width:30%" href="#" role="button">Add To Cart</a>
+			  <a class="btn btn-secondary btn-lg" style="width:30%; color:white" onClick="addToCart();" role="button">Add To Cart</a>
 			</div>
 		</div>
 	</div>

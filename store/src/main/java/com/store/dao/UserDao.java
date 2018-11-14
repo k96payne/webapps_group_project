@@ -1,5 +1,7 @@
 package com.store.dao;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -41,7 +43,12 @@ public class UserDao {
 	}
 	
 	public User getUserByUsername(final String username) {
-		return template.query(QUERY_MAKER.makeGetUserByUsernameQuery(username), new UserMapper()).get(0);
+		List<User> user = template.query(QUERY_MAKER.makeGetUserByUsernameQuery(username), new UserMapper());
+		if(user.isEmpty()) {
+			return new User();
+		} else {
+			return user.get(0);
+		}
 	}
 	
 	public void createUser(final User user) {
@@ -55,10 +62,5 @@ public class UserDao {
 	public void deleteUser(final String username) {
 		template.execute(QUERY_MAKER.makeDeleteUserQuery(username));
 	}
-	
-//	public int getCartId(final String username) {
-//		return template.query(QUERY_MAKER.makeGetUserByUsernameQuery(username), new UserMapper())
-//				.get(0).getCartId();
-//	}
 
 }

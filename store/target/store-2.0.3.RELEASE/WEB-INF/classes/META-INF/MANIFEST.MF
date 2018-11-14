@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: kylepayne
+Build-Jdk: 9.0.1
+Implementation-Title: store
+Implementation-Version: 2.0.3.RELEASE
+Implementation-Vendor-Id: com.store.rest
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/store
+Created-By: Maven Integration for Eclipse
+

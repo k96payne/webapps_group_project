@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="webpage.js"></script>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +16,7 @@
 
 <title>Store</title>
 </head>
-<body>
+<body onload="generateAccountDetails();">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +34,7 @@
 				<a class="nav-link" href="account.html">Account<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+				<a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
 			</li>
 		</ul>
 	</div>
@@ -42,11 +44,12 @@
 	<div class="row" align="center">
 	<div class="col-sm p-5">
 			<i class="fas fa-user fa-10x p-2"></i>
-			<h3>First Name: </h3>
-			<h3>Last Name: </h3>
-			<h3>Username: </h3>
-			<h3>Email: </h3>
-			<h3>Pervious Purchased Items: </h3>
+			<h3>First Name </h3><div id="firstName"></div>
+			<h3>Last Name </h3><div id="lastName"></div>
+			<h3>Username </h3><div id="username"></div>
+			<h3>Email </h3><div id="email"></div>
+			<h3>Pervious Purchased Items </h3><div id="purchasedItems"></div>
+			<a class="btn btn-secondary btn-lg" style="width:50%" href="updateAccount.html" role="button">Update Account</a>
 		</div>
 	</div>
 </div>

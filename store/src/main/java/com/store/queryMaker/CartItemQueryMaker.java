@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 public class CartItemQueryMaker {
 	
 	public String makeAddCartItemQuery(final int cartId, final int productId, 
-			final String username) {
-		return new StringBuilder("INSERT INTO cartItems (cartId, username, itemId) VALUES (")
+			final String username, final String itemName) {
+		return new StringBuilder("INSERT INTO cartItems (cartId, username, itemId, itemName) VALUES (")
 				.append(cartId).append(",\"").append(username).append("\", ").append(productId)
-				.append(");").toString();
+				.append(", \"").append(itemName).append("\");").toString();
 	}
 	
 	public String makeGetCartItemsByUsernameQuery(final String username) {
@@ -31,6 +31,11 @@ public class CartItemQueryMaker {
 		return new StringBuilder("SELECT * FROM cartItems WHERE cartId = -1 AND itemId = ")
 				.append(productId).append(";").toString();
 				
+	}
+
+	public String makeGetCartItemsPurchasedByUserQUery(String username) {
+		return new StringBuilder("SELECT * FROM cartItems WHERE cartId = -1 AND username = \"")
+				.append(username).append("\";").toString();
 	}
 	
 }

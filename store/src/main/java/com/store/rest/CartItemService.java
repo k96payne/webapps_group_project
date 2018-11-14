@@ -1,10 +1,15 @@
 package com.store.rest;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.store.dao.CartDao;
 import com.store.dao.CartItemDao;
+import com.store.dao.ItemDao;
 import com.store.model.CartItem;
 
 import lombok.SneakyThrows;
@@ -40,6 +45,16 @@ public class CartItemService {
 	@SneakyThrows
 	public String getUsersWhoPurchasedProduct(final int productId) {
 		return mapper.writeValueAsString(cartItemDao.getUsersWhoPurchasedProduct(productId));
+	}
+
+	@SneakyThrows
+	public String getItemsPurchasedByUser(final String username) {
+		List<String> itemNames = new ArrayList<>();
+		Collection<CartItem> cartItems = cartItemDao.getCartItemsPurchasedByUser(username);
+		for(CartItem item : cartItems) {
+			itemNames.add(item.getItemName());
+		}
+		return mapper.writeValueAsString(itemNames);
 	}
 
 }
