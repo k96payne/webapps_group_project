@@ -211,8 +211,7 @@ Response body:
 ]
 ```
 
-- list users who bought a specific product
-    EXAMPLE: /carts?productId=1
+- list products bought by specific user
 ```
 Request: GET /carts/purchased/{username}
 Query params: none
