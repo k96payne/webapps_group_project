@@ -2,7 +2,7 @@
 
 * NOTE: I used my own implemented API for this project
 * NOTE: You can find my submission folder in /kylePayneSubmission
-* NOTE: The built war file in the submission folder has the dburl, password, and username in all of my DAO's as stated in the announcements, my actual project might still have my the old dburl, password, and username in all of my DAO's as I am running more tests after submission
+* NOTE: The built war file in the submission folder has the dburl, password, and username in all of my DAO's as stated in the announcements. My actual project might still have my the old dburl, password, and username in all of my DAO's as I am running more tests after submission. If you need need to remake the war, you might need to adjust those values in my 4 DAO files. 
 
 The following are examples on how to use the REST api:
 
