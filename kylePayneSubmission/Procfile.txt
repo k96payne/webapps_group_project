@@ -1,1 +1,0 @@
-web: java -jar target/store-2.0.3.RELEASE.jar
