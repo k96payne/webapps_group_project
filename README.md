@@ -1,7 +1,5 @@
 # WebApps Group Project
 
-*TODO: Adjust API documnetation
-
 The following are examples on how to use the REST api:
 
 - lookup user
