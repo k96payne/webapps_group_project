@@ -6,47 +6,59 @@ The following are examples on how to use the REST api:
 
 - lookup user
 ```
-Request: GET /customers/{username}
+Request: GET /users/{username}
 Request params: (empty)
 Response body:
 {
-    "fname": "Jane",
-    "lname": "Doe",
-    "username": "jdoe",
-    "email": "jdoe@gmail.com"
+    "password": "password",
+    "fname": "kyle",
+    "lname": "payne",
+    "username": "kpayne",
+    "email": "emailAddress@gmail.com"
 }
 ```
 - create user 
 ```
-Request: POST /customers
+Request: POST /users
 Request body:
 {
-    "fname": "Jane",
-    "lname": "Doe",
-    "username": "jdoe",
-    "email": "jdoe@gmail.com"
+	"fname": "kyle",
+	"lname": "payne",
+    "username": "kpayne",
+    "password": "password",
+    "email": "emailAddress@gmail.com"
 }
 Response body: (empty)
 ```
 
 - update user
 ```
-Request: PUT /customers
+Request: PUT /users
 Request body:
 {
-    "fname": "John",
-    "lname": "Dove",
-    "username": "jdoe",
-    "email": "jdove@gmail.com"
+	"fname": "kyleNew",
+	"lname": "payneNew",
+    "username": "kpayne",
+    "email": "newEmailAddress@gmail.com"
 }
 Response body: (empty)
 ```
 
 - delete user
 ```
-Request: DELETE /customers/{username}
+Request: DELETE /users/{username}
 Request params: (empty)
 Response body: (empty)
+```
+
+- validate user
+```
+Request: GET /users?username=kpayne&password=password
+Request body: (empty)
+Response body: 
+{
+    "valid": "true"
+}
 ```
 
 - list all items
