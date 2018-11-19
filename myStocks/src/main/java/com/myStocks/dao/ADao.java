@@ -5,8 +5,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public abstract class ADao {
 	
 	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-	private static final String DB_USERNAME = "root";
-	private static final String DB_PASSWORD = "password";
+	private static final String DB_USERNAME = "springuser";
+	private static final String DB_PASSWORD = "ThePassword";
 	private static final String URL = "jdbc:mysql://localhost:3306/myStocks?useSSL="
 			+ "false&allowPublicKeyRetrieval=true";
 	
