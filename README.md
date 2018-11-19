@@ -2,7 +2,7 @@
 
 The following are examples on how to use the REST api:
 
-+ All requests begin with /myStocks-2.0.3.RELEASE/myStocks/
+*NOTE: All requests begin with /myStocks-2.0.3.RELEASE/myStocks/
 
 - lookup user
 ```
