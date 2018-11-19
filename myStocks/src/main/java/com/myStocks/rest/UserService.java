@@ -34,4 +34,8 @@ public class UserService {
 		userDao.createUser(mapper.readValue(jsonBody, User.class));
 	}
 	
+	public boolean validateUser(final String username, final String password) {
+		return userDao.validateCredentials(username, password);
+	}
+	
 }

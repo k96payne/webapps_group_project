@@ -3,7 +3,7 @@ Built-By: kylepayne
 Build-Jdk: 9.0.1
 Implementation-Title: myStocks
 Implementation-Version: 2.0.3.RELEASE
-Implementation-Vendor-Id: com.myStore.rest
+Implementation-Vendor-Id: com.myStocks.rest
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/myStocks
 Created-By: Maven Integration for Eclipse

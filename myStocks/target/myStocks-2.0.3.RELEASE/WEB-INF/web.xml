@@ -17,14 +17,14 @@
                 </servlet-class>
 		<init-param>
 		     <param-name>com.sun.jersey.config.property.packages</param-name>
-		     <param-value>com.store.rest</param-value>
+		     <param-value>com.myStocks.rest</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
-		<url-pattern>/store/*</url-pattern>
+		<url-pattern>/myStocks/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>
