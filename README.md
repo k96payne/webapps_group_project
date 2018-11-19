@@ -82,11 +82,31 @@ Response body: (empty)
 
 - remove from favorite stocks
 ```
-Request: DELETE /users
+Request: DELETE /favorite
 Request body:
 {
     "username": "kpayne",
     "tickerSymbol": "APPL"
 }
 Response body: (empty)
+```
+
+- get stock data
+```
+Request: GET /stocks/{tickerSymbol} EXAMPLE: /stocks/aapl
+Request body: (empty)
+[
+    "172.8000",
+    "165.7200",
+    "165.2400",
+    "162.9400",
+    "163.6500",
+    "164.2200",
+    "162.3200",
+    "165.2600",
+    "169.1000",
+    ..... (until 150 elements)
+]
+Response body:
+
 ```
