@@ -38,8 +38,8 @@ Request body:
 {
 	"fname": "kyleNew",
 	"lname": "payneNew",
-    "username": "kpayne",
-    "email": "newEmailAddress@gmail.com"
+    	"username": "kpayne",
+    	"email": "newEmailAddress@gmail.com"
 }
 Response body: (empty)
 ```
@@ -61,173 +61,34 @@ Response body:
 }
 ```
 
-- list all items
+- lookup user's favorite stocks
 ```
-Request: GET /items
+Request: GET /favorite/{username}
 Request params: (empty)
 Response body:
 [
-{
-       "itemId": 107,
-        "name": "Rose Cottage Girls' Hunter Green  Jacket Dress",
-        "msrp": 20.0,
-        "salePrice": 11.6,
-        "upc": "048238056017",
-        "shortDescription": "Paired with its' trendy jacket or worn alone, this dress will go anywhere in style.",
-        "brandName": "Generic",
-        "size": "16",
-        "color": "Red",
-        "gender": "Male"
-},
-{
-       "itemId": 109,
-        "name": "Blue Sweater",
-        "msrp": 20.0,
-        "salePrice": 11.6,
-        "upc": "048238056019",
-        "shortDescription": "Trendy sweater.",
-        "brandName": "Generic",
-        "size": "08",
-        "color": "Blue",
-        "gender": "Female"
-}
+    "APPL"
 ]
 ```
 
-- list items by keyword
+- add to favorite stocks 
 ```
-Request: GET /items/search/{keyword}
-Request params: (empty)
-Response body:
-[
-{
-       "itemId": 107,
-        "name": "Rose Cottage Girls' Hunter Green  Jacket Dress",
-        "msrp": 20.0,
-        "salePrice": 11.6,
-        "upc": "048238056017",
-        "shortDescription": "Paired with its' trendy jacket or worn alone, this dress will go anywhere in style.",
-        "brandName": "Generic",
-        "size": "16",
-        "color": "Red",
-        "gender": "Male"
-},
-{
-       "itemId": 109,
-        "name": "Blue Sweater",
-        "msrp": 20.0,
-        "salePrice": 11.6,
-        "upc": "048238056019",
-        "shortDescription": "Trendy sweater.",
-        "brandName": "Generic",
-        "size": "08",
-        "color": "Blue",
-        "gender": "Female"
-}
-]
-```
-
-- list item by id
-```
-Request: GET /items/{id}
-Request params: (empty)
-Response body:
-{
-       "itemId": 107,
-        "name": "Rose Cottage Girls' Hunter Green  Jacket Dress",
-        "msrp": 20.0,
-        "salePrice": 11.6,
-        "upc": "048238056017",
-        "shortDescription": "Paired with its' trendy jacket or worn alone, this dress will go anywhere in style.",
-        "brandName": "Generic",
-        "size": "16",
-        "color": "Red",
-        "gender": "Male"
-}
-```
-
-- add item to shoping cart (Hint: If no current cart exists for this user, create a cart first).
-```
-Request: POST /carts
+Request: POST /favorite
 Request body:
 {
-    "productId": 1,
-    "username": "jdoe"
+    "username": "kpayne",
+    "tickerSymbol": "APPL"
 }
 Response body: (empty)
 ```
 
-- show user's shopping cart
+- remove from favorite stocks
 ```
-Request: GET /carts/{username}
-Request params: (empty)
-Response body:
-[
-{
-   "cartId": 2,
-   "items":[
-     {
-      "productId":1,
-      "productName": "Blue sweater",
-      "msrp": 20.99,
-      "salePrice": 15.99
-     },
-     {
-      "productId":8,
-      "productName": "Red sweater",
-      "msrp": 20.99,
-      "salePrice": 15.99
-     }
-   ]
-}
-]
-```
-
-- remove item from shopping cart
-```
-Request: DELETE /carts
+Request: DELETE /users
 Request body:
 {
-   "cartId": 2,
-   "productId":1
+    "username": "kpayne",
+    "tickerSymbol": "APPL"
 }
 Response body: (empty)
 ```
-
-- buy item (adjust shopping cart status and product list/count)
-```
-Request: PUT /carts/purchase/{cartId}
-Request params: (empty)
-Response body: (empty)
-```
-
-
-- list users who bought a specific product
-    EXAMPLE: /carts?productId=1
-```
-Request: GET /carts
-Query params:
-{
-  "productID":1
-}
-Response body:
-[
-    {
-        "fname": "Jane",
-        "lname": "Doe",
-        "username": "jdoe",
-        "email": "jdoe@gmail.com"
-    }
-]
-```
-
-- list products bought by specific user
-```
-Request: GET /carts/purchased/{username}
-Query params: none
-Response body:
-[
-   ...
-]
-```
-
