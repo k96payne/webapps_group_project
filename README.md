@@ -93,7 +93,7 @@ Request body:
 Response body: (empty)
 ```
 
-- get stock data
+- get stock data (returns the last 150 closing values by day recorded for stocks) 
 ```
 Request: GET /stocks/{tickerSymbol} EXAMPLE: /stocks/aapl
 Request body: (empty)
