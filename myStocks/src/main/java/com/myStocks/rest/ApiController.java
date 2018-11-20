@@ -1,10 +1,13 @@
 package com.myStocks.rest;
 
+import java.util.List;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -38,8 +41,10 @@ public class ApiController extends HttpServlet {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{tickerSymbol}")
-	public String lookupUserByUsername(@PathParam("tickerSymbol") final String tickerSymbol) {
-		return apiService.getStockValues(tickerSymbol);
+	@Path("")
+	public String getStockData(@QueryParam("tickerSymbol") final 
+			List<String> tickerSymbols, @DefaultValue("50") @QueryParam("datasetSize") 
+			final int datasetSize) {
+		return apiService.getStockValues(tickerSymbols, datasetSize);
 	}
 }

@@ -36,21 +36,21 @@ private static final long serialVersionUID = 1L;
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("")
-	public void addToCart(final String jsonBody) {
+	public void addFavoriteStock(final String jsonBody) {
 		favoriteStockService.addFavoriteStock(jsonBody);
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{username}")
-	public String getCart(@PathParam("username") final String username) {
+	public String getFavoriteStocks(@PathParam("username") final String username) {
 		return favoriteStockService.getFavoriteStocks(username);
 	}
 	
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("")
-	public void removeFromCart(final String jsonBody) {
+	public void removeFromFavoriteStocks(final String jsonBody) {
 		favoriteStockService.removeFavoriteStock(jsonBody);
 	}
 }

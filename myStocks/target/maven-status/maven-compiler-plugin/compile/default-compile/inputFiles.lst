@@ -1,6 +1,7 @@
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/queryMaker/UserQueryMaker.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/queryMaker/FavoriteStockQueryMaker.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/FavoriteStockService.java
+/Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/model/StockDataPoint.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/ApiController.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/model/FavoriteStock.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/FavoriteStockController.java
@@ -9,10 +10,12 @@
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/UserService.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/ApiService.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/apiConnector/ApiConnector.java
+/Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/dao/StockDataPointDao.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/dao/UserDao.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/model/mapper/UserMapper.java
+/Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/model/mapper/StockDataPointMapper.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/rest/UserController.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/app/Application.java
-/Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/apiConnector/Test.java
+/Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/queryMaker/StockDataQueryMaker.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/dao/ADao.java
 /Users/kylepayne/Documents/SchoolFall2018/Web Apps/webapps_group_project/myStocks/src/main/java/com/myStocks/model/mapper/FavoriteStockMapper.java
