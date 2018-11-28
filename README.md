@@ -95,20 +95,36 @@ Response body: (empty)
 
 - get stock data (returns the last 150 closing values by day recorded for stocks) 
 ```
-Request: GET /stocks/{tickerSymbol} EXAMPLE: /stocks/aapl
+Request: GET /stocks/queryargs EXAMPLE: stocks?tickerSymbol=TSLA&tickerSymbol=AAPL&datasetSize=50
 Request body: (empty)
-[
-    "172.8000",
-    "165.7200",
-    "165.2400",
-    "162.9400",
-    "163.6500",
-    "164.2200",
-    "162.3200",
-    "165.2600",
-    "169.1000",
-    ..... (until 150 elements)
-]
 Response body:
+{
+    "AAPL": [
+        "176.9110",
+        "185.8600",
+        "193.5300",
+        "191.4100",
+        "186.8000",
+        "192.2300",
+        "194.1700",
+        "204.4700",
+        "208.4900",
+        "209.9500",
+	... 
+     ],
+     "TSLA": [
+        "344.1298",
+        "353.4700",
+        "354.3100",
+        "348.4400",
+        "344.0000",
+        "338.7300",
+        "331.2800",
+        "350.5100",
+        "351.4000",
+        "348.1600",
+	...
+     ]
+}
 
 ```
