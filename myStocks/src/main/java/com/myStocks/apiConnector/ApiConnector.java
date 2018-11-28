@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import com.google.common.collect.Lists;
 import com.myStocks.dao.StockDataPointDao;
-import com.myStocks.model.StockDataPoint;
 
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -31,7 +28,7 @@ public class ApiConnector {
 	private static final String API_KEY_D = "R576DTPMC8PKAHK8";
 	private static final String API_KEY_E = "LGXCP4YQWZ6BIONM"; 
 	
-	private static final int 	DATABASE_FILL_SIZE = 365;
+	private static final int 	DATABASE_FILL_SIZE = 100;
 	
 	private int requestNumber = 1;
 	private StockDataPointDao stockDataPointDao = StockDataPointDao.newStockDataPointDao();
@@ -83,17 +80,20 @@ public class ApiConnector {
 	
 	private void populateDatabaseStockData(final JSONObject data, final String currentDate, 
 			final String tickerSymbol) {
+		int size = 0;
+		int tries = 0;
+		List<String> stockData = new ArrayList<>();
 		String queryDate = currentDate;
-		int day = 1;
-		while(stockDataPointDao.getStockDataPoints(currentDate, tickerSymbol).size() 
-				<= DATABASE_FILL_SIZE) {
+		while(size < DATABASE_FILL_SIZE || tries < DATABASE_FILL_SIZE*2) {
+			tries++;
 			String value = getCloseValue(data, queryDate);
 			if(!value.equals("NA")) {
-				stockDataPointDao.addStockData(currentDate, tickerSymbol, day, value);
+				size++;
+				stockData.add(value);
 			}
 			queryDate = subtractOneDay(queryDate);
-			day++;
 		}
+		stockDataPointDao.addStockData(currentDate, tickerSymbol, stockData);
 	}
 	
 	@SneakyThrows
@@ -101,8 +101,6 @@ public class ApiConnector {
 		HttpClient client = HttpClientBuilder.create().build();
 		String url = "https://www.alphavantage.co/query?function="
 				+ "TIME_SERIES_DAILY&symbol=" + tickerSymbol;
-		
-		url += "&outputsize=full";
 		
 		if(requestNumber == 1) {
 			url += "&apikey=" + API_KEY_A;

@@ -7,7 +7,7 @@ public abstract class ADao {
 	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 	private static final String DB_USERNAME = "springuser";
 	private static final String DB_PASSWORD = "ThePassword";
-	private static final String URL = "jdbc:mysql://localhost:3306/myStocks?useSSL="
+	private static final String URL = "jdbc:mysql://localhost:3306/mystocks?useSSL="
 			+ "false&allowPublicKeyRetrieval=true";
 	
 	public DriverManagerDataSource getDataSource() {
@@ -17,6 +17,12 @@ public abstract class ADao {
 		dataSource.setUsername(DB_USERNAME);
 		dataSource.setPassword(DB_PASSWORD);
 		return dataSource;
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName(DRIVER_CLASS_NAME);
+//		dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
+//		dataSource.setUsername(System.getenv("JDBC_DATABASE_USERNAME"));
+//		dataSource.setPassword(System.getenv("JDBC_DATABASE_PASSWORD"));
+//		return dataSource;
 	}
 
 }

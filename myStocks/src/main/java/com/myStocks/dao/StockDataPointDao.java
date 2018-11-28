@@ -24,9 +24,9 @@ public class StockDataPointDao extends ADao {
 	}
 	
 	public void addStockData(final String additionDate, final String tickerSymbol,
-			final int day, final String closingValue) {
-		template.execute(QUERY_MAKER.makeAddStockDataQuery(additionDate, tickerSymbol, day, 
-				closingValue));
+			final List<String> stockData) {
+		template.execute(QUERY_MAKER.makeAddStockDataQuery(additionDate, tickerSymbol,
+				stockData));
 	}
 	
 	public Collection<StockDataPoint> getStockDataPoints(final String additionDate, 
