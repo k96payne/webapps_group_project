@@ -17,6 +17,12 @@ public abstract class ADao {
 		dataSource.setUsername(DB_USERNAME);
 		dataSource.setPassword(DB_PASSWORD);
 		return dataSource;
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName(DRIVER_CLASS_NAME);
+//		dataSource.setUrl(System.getenv("JDBC_DATABASE_URL"));
+//		dataSource.setUsername(System.getenv("JDBC_DATABASE_USERNAME"));
+//		dataSource.setPassword(System.getenv("JDBC_DATABASE_PASSWORD"));
+//		return dataSource;
 	}
 
 }
