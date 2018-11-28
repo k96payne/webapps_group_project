@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import com.google.common.collect.Lists;
 import com.myStocks.dao.StockDataPointDao;
-import com.myStocks.model.StockDataPoint;
 
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
