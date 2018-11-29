@@ -57,7 +57,8 @@ Request: GET /users?username=kpayne&password=password
 Request body: (empty)
 Response body: 
 {
-    "valid": "true"
+    "valid": "true",
+    "userExists": "true"
 }
 ```
 
