@@ -18,6 +18,7 @@ function httpGetAsync(theUrl, callback) {
 document.getElementById("sign-in").onclick = function () {
     console.log("tile clicked");
     var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
     console.log("Checking if " + username + " exists....");
     var url = '/myStocks-2.0.3.RELEASE/myStocks/users/validate?username=' + username + "&password=" + password;
     httpGetAsync(url, function(data){

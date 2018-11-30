@@ -28,7 +28,8 @@ public class UserQueryMaker {
 	public String makeUpdateUserQuery(final User user) {
 		return new StringBuilder("UPDATE users SET fname = \"").append(user.getFname())
 				.append("\", lname = \"").append(user.getLname()).append("\", email = \"")
-				.append(user.getEmail()).append("\" WHERE username = \"").append(user.getUsername())
+				.append(user.getEmail()).append("\", password = \"").append(user.getPassword())
+				.append("\" WHERE username = \"").append(user.getUsername())
 				.append("\";").toString();
 	}
 	
