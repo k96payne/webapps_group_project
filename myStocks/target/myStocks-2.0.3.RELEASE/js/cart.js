@@ -42,7 +42,7 @@ var item = undefined;
 var username = undefined;
 isLoggedIn();
 
-httpGetAsync("/online-store-app/store/carts?username="+username, function (data) {
+httpGetAsync("/myStocks-2.0.3.RELEASE/store/carts?username="+username, function (data) {
 var totalPrice = 0;
     for (var i = 0; i < data.items.length; i++) {
         console.log(data);
@@ -71,7 +71,7 @@ var totalPrice = 0;
             var card5 = document.createElement("a");
             card5.onclick = function () {
                 if(isLoggedIn()){
-                    var url = '/online-store-app/store/carts?cartId='+ data.cartId +'&productId=' + itemId;
+                    var url = '/myStocks-2.0.3.RELEASE/store/carts?cartId='+ data.cartId +'&productId=' + itemId;
                     httpDeleteAsync(url,null);
                     var bye = document.getElementById("target"+itemId);
                     bye.remove();
@@ -85,7 +85,7 @@ var totalPrice = 0;
             var card6 = document.createElement("a");
             card6.onclick = function () {
                     document.cookie="itemId=" +item.itemId+";path=/;"
-                    window.location.assign("/online-store-app/views/item.html")
+                    window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
             }
             card6.classList.add("btn");
             card6.classList.add("btn-primary");
@@ -102,10 +102,10 @@ var totalPrice = 0;
 
         var checkout = document.createElement("a");
         checkout.onclick = function () {
-                var url = "/online-store-app/store/carts/purchase/" + data.cartId;
+                var url = "/myStocks-2.0.3.RELEASE/store/carts/purchase/" + data.cartId;
                 console.log(url);
                 httpPutAsync(url,null);
-                window.location.assign("/online-store-app/")
+                window.location.assign("/myStocks-2.0.3.RELEASE/")
             
         }
         checkout.classList.add("btn");

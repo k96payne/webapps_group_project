@@ -1,6 +1,6 @@
 var username = undefined;
 if (!isLoggedIn())
-    window.location.assign('/online-store-app/views/signin.html');
+    window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -30,7 +30,7 @@ function httpPutAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
-httpGetAsync("/online-store-app/store/customers/"+username, function(data){
+httpGetAsync("/myStocks-2.0.3.RELEASE/store/customers/"+username, function(data){
     console.log(data);
     var fname = data.fname;
     var lname = data.lname;
@@ -56,14 +56,14 @@ document.getElementById("sign-in").onclick = function () {
     var email = document.getElementById("email").value;
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
-    var url = "/online-store-app/store/customers?fname=" + fname + "&lname=" + lname + "&username=" + username + "&email=" + email;
+    var url = "/myStocks-2.0.3.RELEASE/store/customers?fname=" + fname + "&lname=" + lname + "&username=" + username + "&email=" + email;
 
     httpPutAsync(url, function (data) {
         console.log(data);
         if (data != 200) {
             document.getElementById("targ").innerHTML = "Please try again....";
         } else {
-            window.location.assign("/online-store-app/views/profile.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/profile.html")
         }
     });
 }
@@ -83,7 +83,7 @@ function isLoggedIn() {
     return false;
 }
 
-httpGetAsync("/online-store-app/store/carts?username=" + username, function (data) {
+httpGetAsync("/myStocks-2.0.3.RELEASE/store/carts?username=" + username, function (data) {
     console.log(data);
     for (var j = 0; j < data.length; i++) {
         console.log("here")
@@ -117,7 +117,7 @@ httpGetAsync("/online-store-app/store/carts?username=" + username, function (dat
             var card5 = document.createElement("a");
             card5.onclick = function () {
                 if (isLoggedIn()) {
-                    var url = '/online-store-app/store/carts?cartId=' + data.cartId + '&productId=' + itemId;
+                    var url = '/myStocks-2.0.3.RELEASE/store/carts?cartId=' + data.cartId + '&productId=' + itemId;
                     httpDeleteAsync(url, null);
                     var bye = document.getElementById("target" + itemId);
                     bye.remove();
@@ -131,7 +131,7 @@ httpGetAsync("/online-store-app/store/carts?username=" + username, function (dat
             var card6 = document.createElement("a");
             card6.onclick = function () {
                 document.cookie = "itemId=" + item.itemId + ";path=/;"
-                window.location.assign("/online-store-app/views/item.html")
+                window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
             }
             card6.classList.add("btn");
             card6.classList.add("btn-primary");

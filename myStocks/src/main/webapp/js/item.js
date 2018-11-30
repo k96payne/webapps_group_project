@@ -41,7 +41,7 @@ function getItemId() {
 var item = undefined;
 var username = undefined;
 
-httpGetAsync("/online-store-app/store/items", function (data) {
+httpGetAsync("/myStocks-2.0.3.RELEASE/store/items", function (data) {
     var itemId = getItemId();
     for (var i = 0; i < data.length; i++) {
         if (data[i].itemId == itemId) {
@@ -75,12 +75,12 @@ httpGetAsync("/online-store-app/store/items", function (data) {
             var card5 = document.createElement("a");
             card5.onclick = function () {
                 if(isLoggedIn()){
-                    var url = '/online-store-app/store/carts?productId='+ item.itemId +'&username=' + username;
+                    var url = '/myStocks-2.0.3.RELEASE/store/carts?productId='+ item.itemId +'&username=' + username;
                     httpPostAsync(url, function(data){});
 
-                    window.location.assign("/online-store-app/")
+                    window.location.assign("/myStocks-2.0.3.RELEASE/")
                 }
-                else window.location.assign("/online-store-app/views/signin.html")
+                else window.location.assign("/myStocks-2.0.3.RELEASE/views/signin.html")
             }
             card5.classList.add("btn");
             card5.classList.add("btn-primary");
@@ -89,7 +89,7 @@ httpGetAsync("/online-store-app/store/items", function (data) {
 
             var card6 = document.createElement("a");
             card6.onclick = function () {
-                    window.location.assign("/online-store-app/#")
+                    window.location.assign("/myStocks-2.0.3.RELEASE/#")
             }
             card6.classList.add("btn");
             card6.classList.add("btn-primary");

@@ -19,16 +19,19 @@ document.getElementById("sign-in").onclick = function () {
     console.log("tile clicked");
     var username = document.getElementById("username").value;
     console.log("Checking if " + username + " exists....");
-    var url = '/online-store-app/store/customers/' + username
+    var url = '/myStocks-2.0.3.RELEASE/myStocks/users/validate?username=' + username + "&password=" + password;
     httpGetAsync(url, function(data){
-        if(data == 0){
+        if(data.userExists == "false"){
             console.log(username + " does not exist, must sign up!");
             document.cookie = "username=;";
-            window.location.assign("/online-store-app/views/signup.html");
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/signup.html");
+        }
+        else if(data.valid == "false") {
+            alert("Password Incorrect, Try Again.");
         }
         else{
             document.cookie = "username=" + username + ";path=/;";
-            window.location.assign("/online-store-app/views/cart.html");
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/cart.html");
             
         }
         var x = document.cookie;

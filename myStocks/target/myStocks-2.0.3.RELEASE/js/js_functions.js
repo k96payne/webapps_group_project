@@ -109,9 +109,9 @@ function createList(data) {
         document.cookie = "itemId=" + data.itemId + ";path=/;"
         console.log(x);
         if(isLoggedIn()){
-            window.location.assign("/online-store-app/views/item.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
         }
-        else window.location.assign("/online-store-app/views/signin.html")
+        else window.location.assign("/myStocks-2.0.3.RELEASE/views/signin.html")
     }
     card5.innerHTML = "View Details";
     card2.appendChild(card5);
@@ -177,7 +177,7 @@ function createTile(data) {
         var x = document.cookie;
         document.cookie = "itemId=" + data.itemId + ";path=/;"
         console.log(x);
-            window.location.assign("/online-store-app/views/item.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
     }
     card5.classList.add("btn");
     card5.classList.add("btn-outline-primary");
