@@ -36,7 +36,7 @@ public class UserDao extends ADao {
 		List<User> user = template.query(QUERY_MAKER.makeGetUserByUsernameQuery(username), 
 				new UserMapper());
 		if(user.isEmpty()) {
-			return new User();
+			return new User(-1, "NA", "NA", "NA", "NA", "NA");
 		} else {
 			return user.get(0);
 		}
@@ -54,8 +54,8 @@ public class UserDao extends ADao {
 		template.execute(QUERY_MAKER.makeDeleteUserQuery(username));
 	}
 	
-	public boolean validateCredentials(final String username, final String password) {
-		return getUserByUsername(username).getPassword().equals(password);
-	}
+//	public boolean validateCredentials(final String username, final String password) {
+//		return getUserByUsername(username).getPassword().equals(password);
+//	}
 
 }

@@ -1,12 +1,12 @@
 package com.myStocks.rest;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
 import com.myStocks.apiConnector.ApiConnector;
 
 import lombok.SneakyThrows;
@@ -19,12 +19,13 @@ public class ApiService {
 
 	@SneakyThrows
 	public String getStockValues(final List<String> tickerSymbols, final int datasetSize)  {
-		Map<String,List<String>> stockValues = new HashMap<>();
-	
-		int requestNumber = 1;
+		List<List<String>> stockValues = new ArrayList<>();
 		
 		for(String tickerSymbol : tickerSymbols) {
-			stockValues.put(tickerSymbol, connector.getStockData(tickerSymbol, datasetSize));
+			List<String> stockData = new ArrayList<>();
+			stockData.add(tickerSymbol);
+			stockData.addAll(Lists.reverse(connector.getStockData(tickerSymbol, datasetSize)));
+			stockValues.add(stockData);
 		}
 		
 		return mapper.writeValueAsString(stockValues);

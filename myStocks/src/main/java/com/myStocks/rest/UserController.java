@@ -68,12 +68,6 @@ public class UserController extends HttpServlet {
 	@Path("/validate")
 	public String validateUser(@QueryParam("username") final String username, 
 			@QueryParam("password") final String password) {
-		StringBuilder builder = new StringBuilder("{\"valid\": ");
-		if(userService.validateUser(username, password) == true) {
-			builder.append("\"true\"}");
-		} else {
-			builder.append("\"false\"}");
-		}
-		return builder.toString();
+		return userService.validateUser(username, password);
 	}
 }

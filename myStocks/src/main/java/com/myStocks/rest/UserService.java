@@ -34,8 +34,21 @@ public class UserService {
 		userDao.createUser(mapper.readValue(jsonBody, User.class));
 	}
 	
-	public boolean validateUser(final String username, final String password) {
-		return userDao.validateCredentials(username, password);
+	public String validateUser(final String username, final String password) {
+		StringBuilder builder = new StringBuilder("{\"valid\": ");
+		User user = userDao.getUserByUsername(username);
+		if(user.getPassword().equals(password)) {
+			builder.append("\"true\", ");
+		} else {
+			builder.append("\"false\", ");
+		}
+		builder.append("\"userExists\": ");
+		if(user.getUsername().equals(username)) {
+			builder.append("\"true\"}");
+		} else {
+			builder.append("\"false\"}");
+		}
+		return builder.toString();
 	}
 	
 }
