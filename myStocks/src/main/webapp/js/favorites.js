@@ -1,7 +1,5 @@
-//console.log("hello");
-
-var stocks = ["AAPL", "MSFT", "TSLA", "FB", "AMZN", "NFLX", "TWTR", "NVDA", "GOOGL"];
 var username = undefined;
+var stocks = undefined;
 var serverData = undefined;
 var stockData = undefined;
 
@@ -17,6 +15,15 @@ document.getElementById("logged").onclick = function() {
     }
 }
 
+httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/favorite/" + username, function(data) {
+    stocks = data;
+    httpGetAsync(generateStockQueries(), function (data) {
+        stockData = data;
+        clearDOM();
+        populateDOM(data, 0);
+    });
+});
+
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
@@ -31,15 +38,8 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
-
-httpGetAsync(generateStockQueries(), function (data) {
-    stockData = data;
-    clearDOM();
-    populateDOM(data, 0);
-});
-
 function generateStockQueries() {
-	var queryString = "myStocks/stocks?datasetSize=50";
+	var queryString = "/myStocks-2.0.3.RELEASE/myStocks/stocks?datasetSize=50";
 	for(var i = 0; i < stocks.length; i++) {
 		queryString += "&tickerSymbol=" + stocks[i];
 	}
@@ -64,6 +64,17 @@ function populateDOM(data, option) {
     }
 
 }
+
+// if(isLoggedIn()){
+//     console.log("TEST");
+//     document.getElementById("logged").innerHTML = "Log Out";
+// }
+
+// document.getElementById("logged").onclick = function() {
+//     if(isLoggedIn()){
+//         document.cookie="username=;path=/;"
+//     }
+// }
 
 function clearDOM() {
     var start = document.getElementById("myparent");
@@ -187,9 +198,10 @@ function createTile(data) {
         var requestObject = {};
 	    requestObject.tickerSymbol = stockName;
         requestObject.username = username;
-        httpPostAsync("myStocks/favorite", requestObject, function(data) {
+        httpDeleteAsync("/myStocks-2.0.3.RELEASE/myStocks/favorite/", requestObject, function(data) {
             if(data < 300) {
-                alert("Stock " + stockName + " added to favorites");
+                alert("Stock " + stockName + " removed from favorites");
+                window.location.assign("/myStocks-2.0.3.RELEASE/views/favorites.html")
             } else {
                 alert("Something went wrong");
             }
@@ -198,7 +210,7 @@ function createTile(data) {
     card6.classList.add("btn");
     card6.classList.add("btn-outline-primary");
     card6.classList.add("stock-buttons");
-    card6.innerHTML = "Favorite Stock";
+    card6.innerHTML = "Remove";
     card2.appendChild(card6);
 
 }
@@ -225,7 +237,7 @@ function isLoggedIn() {
     return false;
 }
 
-function httpPostAsync(theUrl, requestObject, callback) {
+function httpDeleteAsync(theUrl, requestObject, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState == 4 && xmlHttp.status < 300) {
@@ -235,7 +247,8 @@ function httpPostAsync(theUrl, requestObject, callback) {
             callback(xmlHttp.status);
         
     }
-    xmlHttp.open("POST", theUrl, true); // true for asynchronous 
+    xmlHttp.open("DELETE", theUrl, true); // true for asynchronous 
     xmlHttp.setRequestHeader("Content-Type", "application/json");
     xmlHttp.send(JSON.stringify(requestObject));
 }
+

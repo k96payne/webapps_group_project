@@ -1,6 +1,16 @@
 var username = undefined;
-if (!isLoggedIn())
+
+if (!isLoggedIn()) 
     window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
+else {
+    document.getElementById("logged").innerHTML = "Log Out";
+}
+
+document.getElementById("logged").onclick = function() {
+    if(isLoggedIn()){
+        document.cookie="username=;path=/;"
+    }
+}
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -36,53 +46,58 @@ httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/users/"+username, function(data){
     var fname = data.fname;
     var lname = data.lname;
     var email = data.email;
-    var list = document.getElementById("currentInfo");
-    var currUser = document.createElement("li");
-    currUser.innerHTML=username;
-    list.appendChild(currUser);
-    var first = document.createElement("li");
-    first.innerHTML = fname;
-    list.appendChild(first);
-    var last = document.createElement("li");
-    last.innerHTML = lname;
-    list.appendChild(last);
-    var email1 = document.createElement("li");
-    email1.innerHTML = email;
-    list.appendChild(email1);
-
+    document.getElementById("username").innerText = username;
+    document.getElementById("email").innerText = email;
+    document.getElementById("fname").innerText = fname;
+    document.getElementById("lname").innerText = lname;
 })
 
 
 document.getElementById("update").onclick = function () {
+    console.log(document.getElementById("email").innerText);
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var url = "/myStocks-2.0.3.RELEASE/myStocks/users";
 
-    var requestObject = {};
-    requestObject.username = username;
-	requestObject.fname = fname;
-	requestObject.lname = lname;
-    requestObject.password = password;
-	requestObject.email = email;
+    console.log(email, password, fname, lname);
+
+    if(fname == null || fname == "" || lname == null || lname == "" || email == null || 
+        email == "" || password == null || password == "") {
+		alert('Not all fields are filled');
+	} else {
+        var requestObject = {};
+        requestObject.username = username;
+	    requestObject.fname = fname;
+	    requestObject.lname = lname;
+        requestObject.password = password;
+	    requestObject.email = email;
 
     httpPutAsync(url, requestObject, function (data) {
         console.log(data);
-        if (data >= 300) {
-            document.getElementById("targ").innerHTML = "Please try again....";
-        } else {
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/profile.html")
-        }
-    });
+            if (data >= 300) {
+                document.getElementById("targ").innerHTML = "Please try again....";
+            } else {
+                window.location.assign("/myStocks-2.0.3.RELEASE/views/profile.html")
+            }
+        });
+    }
 }
 
 function isLoggedIn() {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
-        var name = cookies[i].split('=')[0].toLowerCase();
-        var value = cookies[i].split('=')[1].toLowerCase();
-        if (name.indexOf("username") >= 0 && value != "" && value != " ") {
+        var name = undefined;
+        var value = undefined;
+        try {
+            name = cookies[i].split('=')[0].toLowerCase();
+            value = cookies[i].split('=')[1].toLowerCase();
+        } catch(err) {
+            return false;
+        }
+        
+        if (name.indexOf("username") >=0 && value!="" && value!=" ") {
             username = value;
             console.log("Logged in");
             return true;
