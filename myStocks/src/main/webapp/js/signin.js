@@ -32,7 +32,7 @@ document.getElementById("sign-in").onclick = function () {
         }
         else{
             document.cookie = "username=" + username + ";path=/;";
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/cart.html");
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/favorites.html");
             
         }
         var x = document.cookie;

@@ -1,8 +1,12 @@
 //console.log("hello");
 
 var stocks = ["AAPL", "MSFT", "TSLA", "FB", "AMZN", "NFLX", "TWTR", "NVDA", "GOOGL"];
+var username = undefined;
 var serverData = undefined;
 var stockData = undefined;
+
+if (!isLoggedIn())
+    window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -109,7 +113,7 @@ function createList(data) {
         document.cookie = "itemId=" + data.itemId + ";path=/;"
         console.log(x);
         if(isLoggedIn()){
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/details.html")
         }
         else window.location.assign("/myStocks-2.0.3.RELEASE/views/signin.html")
     }
@@ -125,6 +129,7 @@ function createTile(data) {
     var cardStart = document.createElement("div");
     cardStart.classList.add("card");
     cardStart.classList.add("text-center");
+    cardStart.classList.add("shadow", "p-3", "mb-5", "bg-white", "rounded");
     start.appendChild(cardStart);
 
     var insert = document.createElement("canvas");
@@ -138,9 +143,11 @@ function createTile(data) {
     }
     var bgc = "";
     if(data[0]<data[data.length-1]){
-        bgc = 'rgba(102, 255, 153, 0.4)';
+        bgc = 'rgba(2, 200, 167, 0.4)';
     }
-    else bgc = 'rgba(255, 99, 132,0.4)';
+    else {
+        bgc = 'rgba(245, 52, 32, 0.4)';
+    }
 
     var myChart = new Chart(insert, {
         type: 'line',
@@ -168,6 +175,7 @@ function createTile(data) {
 
     var card3 = document.createElement("h5");
     card3.classList.add("card-title");
+    card3.classList.add("stock-titles");
     card3.innerHTML = stockName;
     card2.appendChild(card3);
 
@@ -177,22 +185,31 @@ function createTile(data) {
         var x = document.cookie;
         document.cookie = "itemId=" + data.itemId + ";path=/;"
         console.log(x);
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/item.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/views/details.html")
     }
     card5.classList.add("btn");
     card5.classList.add("btn-outline-primary");
-    card5.innerHTML = "View Details";
+    card5.classList.add("stock-buttons");
+    card5.innerHTML = "Details";
     card2.appendChild(card5);
 
     var card6 = document.createElement("a");
     card6.onclick = function () {
-        var x = document.cookie;
-        document.cookie = "itemId=" + data.itemId + ";path=/;"
-        console.log(x);
+        var requestObject = {};
+	    requestObject.tickerSymbol = stockName;
+        requestObject.username = username;
+        httpPostAsync("myStocks/favorite", requestObject, function(data) {
+            if(data < 300) {
+                alert("Stock " + stockName + " added to favorites");
+            } else {
+                alert("Something went wrong");
+            }
+        });
     }
     card6.classList.add("btn");
     card6.classList.add("btn-outline-primary");
-    card6.innerHTML = "Add to Favorites";
+    card6.classList.add("stock-buttons");
+    card6.innerHTML = "Favorite Stock";
     card2.appendChild(card6);
 
 }
@@ -210,4 +227,19 @@ function isLoggedIn() {
     }
     console.log("Not logged in");
     return false;
+}
+
+function httpPostAsync(theUrl, requestObject, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status < 300) {
+            callback(xmlHttp.status);
+        }
+        else if(xmlHttp.readyState==4)
+            callback(xmlHttp.status);
+        
+    }
+    xmlHttp.open("POST", theUrl, true); // true for asynchronous 
+    xmlHttp.setRequestHeader("Content-Type", "application/json");
+    xmlHttp.send(JSON.stringify(requestObject));
 }
