@@ -5,8 +5,22 @@ var username = undefined;
 var serverData = undefined;
 var stockData = undefined;
 
+<<<<<<< HEAD
+if (!isLoggedIn()) 
+    window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
+else {
+    document.getElementById("logged").innerHTML = "Log Out";
+}
+
+document.getElementById("logged").onclick = function() {
+    if(isLoggedIn()){
+        document.cookie="username=;path=/;"
+    }
+}
+=======
 if (!isLoggedIn())
     window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
+>>>>>>> 5818014a6e53ca5e097ef89cc0152f97b8f2c3ff
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -54,26 +68,6 @@ function populateDOM(data, option) {
         createList(data[i]);
     }
 
-}
-
-document.getElementById("option1").onchange = function () {
-    clearDOM();
-    populateDOM(serverData, 0);
-};
-
-document.getElementById("option2").onchange = function () {
-    clearDOM();
-    populateDOM(serverData, 1);
-};
-
-if(isLoggedIn()){
-    document.getElementById("logged").innerHTML = "Log Out";
-}
-
-document.getElementById("logged").onclick = function() {
-    if(isLoggedIn()){
-        document.cookie="username=;path=/;"
-    }
 }
 
 function clearDOM() {
@@ -217,8 +211,15 @@ function createTile(data) {
 function isLoggedIn() {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
-        var name = cookies[i].split('=')[0].toLowerCase();
-        var value = cookies[i].split('=')[1].toLowerCase();
+        var name = undefined;
+        var value = undefined;
+        try {
+            name = cookies[i].split('=')[0].toLowerCase();
+            value = cookies[i].split('=')[1].toLowerCase();
+        } catch(err) {
+            return false;
+        }
+        
         if (name.indexOf("username") >=0 && value!="" && value!=" ") {
             username = value;
             console.log("Logged in");
