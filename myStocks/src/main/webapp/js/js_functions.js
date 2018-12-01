@@ -5,6 +5,7 @@ var username = undefined;
 var serverData = undefined;
 var stockData = undefined;
 
+<<<<<<< HEAD
 if (!isLoggedIn()) 
     window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
 else {
@@ -16,6 +17,10 @@ document.getElementById("logged").onclick = function() {
         document.cookie="username=;path=/;"
     }
 }
+=======
+if (!isLoggedIn())
+    window.location.assign('/myStocks-2.0.3.RELEASE/views/signin.html');
+>>>>>>> 5818014a6e53ca5e097ef89cc0152f97b8f2c3ff
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
