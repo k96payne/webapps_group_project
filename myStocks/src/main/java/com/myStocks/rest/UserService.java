@@ -44,10 +44,17 @@ public class UserService {
 		}
 		builder.append("\"userExists\": ");
 		if(user.getUsername().equals(username)) {
+			builder.append("\"true\", ");
+		} else {
+			builder.append("\"false\", ");
+		}
+		builder.append("\"isAdmin\": ");
+		if(user.getIsAdmin() == 1) {
 			builder.append("\"true\"}");
 		} else {
 			builder.append("\"false\"}");
 		}
+		
 		return builder.toString();
 	}
 	

@@ -16,6 +16,7 @@ public class User {
 	@JsonIgnore
 	private int id;
 	
+	private int isAdmin;
 	private String password;
 	private String fname;
 	private String lname;
