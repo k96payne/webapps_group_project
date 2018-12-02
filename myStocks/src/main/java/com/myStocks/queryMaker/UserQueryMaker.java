@@ -38,4 +38,9 @@ public class UserQueryMaker {
 				.append("\";").toString();
 	}
 	
+	public String makePromoteUserQuery(final String username) {
+		return new StringBuilder("UPDATE users SET isAdmin = 1 WHERE username = \"")
+				.append(username).append("\";").toString();
+	}
+	
 }

@@ -58,4 +58,9 @@ public class UserService {
 		return builder.toString();
 	}
 	
+	@SneakyThrows
+	public void promoteUser(final String username) {
+		userDao.promoteUser(username);
+	}
+	
 }

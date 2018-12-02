@@ -70,4 +70,11 @@ public class UserController extends HttpServlet {
 			@QueryParam("password") final String password) {
 		return userService.validateUser(username, password);
 	}
-}
+	
+	@PUT
+	@Path("/promote/{username}")
+	public void promoteUser(@PathParam("username") final String username) {
+		userService.promoteUser(username);
+	}
+	
+}	

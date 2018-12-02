@@ -41,6 +41,20 @@ function httpPutAsync(theUrl, requestObject, callback) {
     xmlHttp.send(JSON.stringify(requestObject));
 }
 
+function httpDeleteAsync(theUrl, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status < 300) {
+            callback(xmlHttp.status);
+        } else if (xmlHttp.readyState == 4)
+            callback(xmlHttp.status);
+
+    }
+    xmlHttp.open("DELETE", theUrl, true); // true for asynchronous 
+    //xmlHttp.setRequestHeader("Content-Type", "application/json");
+    xmlHttp.send(null);
+}
+
 httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/users/"+username, function(data){
     console.log(data);
     var fname = data.fname;
@@ -83,6 +97,18 @@ document.getElementById("update").onclick = function () {
             }
         });
     }
+}
+
+document.getElementById("delete").onclick = function () {
+    httpDeleteAsync("/myStocks-2.0.3.RELEASE/myStocks/users/" + username, function(data) {
+        console.log(data);
+            if (data >= 300) {
+                document.getElementById("targ").innerHTML = "Please try again....";
+            } else {
+            	document.cookie="username=;path=/;"
+                window.location.assign("/myStocks-2.0.3.RELEASE/views/signin.html")
+            }
+    });
 }
 
 function isLoggedIn() {
