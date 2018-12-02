@@ -1,5 +1,12 @@
 # WebApps Group Project
 
+Setting up your local environment:
+* Create a mysql DB named mystocks
+* Make sure your credentials match the ones in ADao.java
+* Run the create DB tables script
+* Run the populae DB tables script
+* The admin username and password is: admin adminpassword
+
 The following are examples on how to use the REST api:
 
 *NOTE: All requests begin with /myStocks-2.0.3.RELEASE/myStocks/
