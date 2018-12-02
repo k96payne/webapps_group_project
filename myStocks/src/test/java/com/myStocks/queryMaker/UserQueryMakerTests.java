@@ -35,5 +35,23 @@ public class UserQueryMakerTests {
 						"email")));
 	}
 	
+	@Test
+	public void testUpdateUserQuery() {
+		assertEquals("UPDATE users SET fname = \"first\", lname = \"last\", email = \"mail\", "
+				+ "password = \"pass\" WHERE username = \"user\";", queryMaker.makeUpdateUserQuery
+				(new User(1, 0, "pass", "first", "last", "user", "mail")));
+	}
+	
+	@Test
+	public void testDeleteUserQuery() {
+		assertEquals("DELETE FROM users WHERE username = \"user\";", queryMaker
+				.makeDeleteUserQuery("user"));
+	}
+	
+	@Test
+	public void testPromoteUserQuery() {
+		assertEquals("UPDATE users SET isAdmin = 1 WHERE username = \"user\";", queryMaker
+				.makePromoteUserQuery("user"));
+	}
 	
 }
