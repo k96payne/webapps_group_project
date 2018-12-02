@@ -22,7 +22,7 @@ document.getElementById("sign-up").onclick = function () {
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var url = "/myStocks-2.0.3.RELEASE/myStocks/users";
-    var encrypted = CryptoJS.SHA3(password).toString();
+    var encrypted = CryptoJS.AES.encrypt(password, 'web-apps').toString();
     console.log(encrypted);
 
     var requestObject = {};
