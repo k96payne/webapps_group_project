@@ -43,4 +43,9 @@ public class UserQueryMaker {
 				.append(username).append("\";").toString();
 	}
 	
+	public String makeDemoteUserQuery(final String username) {
+		return new StringBuilder("UPDATE users SET isAdmin = 0 WHERE username = \"")
+				.append(username).append("\";").toString();
+	}
+	
 }

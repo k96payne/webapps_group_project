@@ -77,4 +77,10 @@ public class UserController extends HttpServlet {
 		userService.promoteUser(username);
 	}
 	
+	@PUT
+	@Path("/demote/{username}")
+	public void demoteUser(@PathParam("username") final String username) {
+		userService.demoteUser(username);
+	}
+	
 }	

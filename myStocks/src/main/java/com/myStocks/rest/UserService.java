@@ -63,4 +63,9 @@ public class UserService {
 		userDao.promoteUser(username);
 	}
 	
+	@SneakyThrows
+	public void demoteUser(final String username) {
+		userDao.demoteUser(username);
+	}
+	
 }

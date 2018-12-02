@@ -57,5 +57,9 @@ public class UserDao extends ADao {
 	public void promoteUser(final String username) {
 		template.execute(QUERY_MAKER.makePromoteUserQuery(username));
 	}
+	
+	public void demoteUser(final String username) {
+		template.execute(QUERY_MAKER.makeDemoteUserQuery(username));
+	}
 
 }
