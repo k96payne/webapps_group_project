@@ -25,7 +25,6 @@ document.getElementById("delete").onclick = function () {
             if (data >= 300) {
                 alert("Something went wrong, please try again");
             } else {
-                alert("User deleted successfully");
                 window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html")
             }
     });
@@ -38,10 +37,27 @@ document.getElementById("promote").onclick = function () {
             if (data >= 300) {
                 alert("Something went wrong, please try again");
             } else {
-                alert("User promoted successfully");
-                window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html")
+                window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html");
             }
     });
+}
+
+document.getElementById("demote").onclick = function () {
+    if(username == "root") {
+        var demotionUsername = document.getElementById("demote-username").value;
+        httpPutAsync("/myStocks-2.0.3.RELEASE/myStocks/users/demote/" + demotionUsername, function(data) {
+            console.log(data);
+                if (data >= 300) {
+                    alert("Something went wrong, please try again");
+                } else {
+                    window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html");
+                }
+        });
+    } 
+    else {
+        alert("Only the root admin can perform this operation");
+        window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html");
+    }
 }
 
 function httpGetAsync(theUrl, callback) {
