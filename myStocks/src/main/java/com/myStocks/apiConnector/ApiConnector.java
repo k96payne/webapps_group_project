@@ -47,7 +47,7 @@ public class ApiConnector {
 		if(databaseIsPopulated) {
 			List<String> stockData = new ArrayList<>();
 			int day = 1;
-			while(stockData.size() <= datasetSize) {
+			while(stockData.size() < datasetSize) {
 				String value = stockDataPointDao.getStockDataPoint(currentDate, tickerSymbol, 
 						day).getClosingValue();
 				if(!value.equals("0")) {
