@@ -58,7 +58,8 @@ Request body: (empty)
 Response body: 
 {
     "valid": "true",
-    "userExists": "true"
+    "userExists": "true",
+    "isAdmin": "false"
 }
 ```
 
