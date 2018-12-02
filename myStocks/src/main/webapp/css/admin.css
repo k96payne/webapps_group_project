@@ -17,7 +17,7 @@ body {
 }
 
 .card {
-  background-color: rgba(124, 219, 213, 0.8);
+  background-color: rgba(218, 105, 124, 0.8);
   border-color:  rgba(0,0,0, 0.0);
   height: 100%;
 }
@@ -65,12 +65,4 @@ body {
   background-color: transparent;
   background-image: none;
   border-color: rgb(229, 175, 0);
-}
-
-#intro{
-  font-size: 25px;
-}
-
-#siform{
-  margin-top:50px;
 }

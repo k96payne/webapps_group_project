@@ -15,12 +15,18 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
+document.getElementById("create-account").onclick = function() {
+    window.location.assign("/myStocks-2.0.3.RELEASE/views/signup.html")
+}
+
 document.getElementById("sign-in").onclick = function () {
     console.log("tile clicked");
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    var encrypted = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+    console.log(encrypted);
     console.log("Checking if " + username + " exists....");
-    var url = '/myStocks-2.0.3.RELEASE/myStocks/users/validate?username=' + username + "&password=" + password;
+    var url = '/myStocks-2.0.3.RELEASE/myStocks/users/validate?username=' + username + "&password=" + encrypted;
     httpGetAsync(url, function(data){
         if(data.userExists == "false"){
             console.log(username + " does not exist, must sign up!");
