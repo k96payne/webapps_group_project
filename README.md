@@ -95,6 +95,13 @@ Request body:
 Response body: (empty)
 ```
 
+- promote user
+```
+Request: PUT /users/promote/{username}
+Request body: (empty)
+Response body: (empty)
+```
+
 - get stock data (returns the last 150 closing values by day recorded for stocks) 
 ```
 Request: GET /stocks/queryargs EXAMPLE: stocks?tickerSymbol=TSLA&tickerSymbol=AAPL&datasetSize=50
