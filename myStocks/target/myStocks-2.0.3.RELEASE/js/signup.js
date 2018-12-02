@@ -14,7 +14,7 @@ function httpGetAsync(theUrl, requestObject, callback) {
 }
 
 
-document.getElementById("sign-in").onclick = function () {
+document.getElementById("sign-up").onclick = function () {
     console.log("tile clicked");
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
@@ -22,25 +22,23 @@ document.getElementById("sign-in").onclick = function () {
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var url = "/myStocks-2.0.3.RELEASE/myStocks/users";
+    var encrypted = CryptoJS.AES.encrypt(password, 'web-apps').toString();
+    console.log(encrypted);
 
     var requestObject = {};
 	requestObject.fname = fname;
 	requestObject.lname = lname;
     requestObject.username = username;
-    requestObject.password = password;
+    requestObject.password = encrypted;
 	requestObject.email = email;
 
     httpGetAsync(url, requestObject,function(data){
-        console.log(data);
         if(data >= 300){
-            document.getElementById("targ").innerHTML = "Please try again....";
+            alert("Error occured, try again....");
         }
         else{
             document.cookie = "username=" + username + ";path=/;"
             window.location.assign("/myStocks-2.0.3.RELEASE/views/favorites.html")
         }
     });
-
-
-
 }
