@@ -32,16 +32,11 @@ document.getElementById("sign-in").onclick = function () {
         }
         else{
             document.cookie = "username=" + username + ";path=/;";
-<<<<<<< HEAD
             if(data.isAdmin == "true") {
                 window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html");
             } else {
                 window.location.assign("/myStocks-2.0.3.RELEASE/index.html");
             }     
-=======
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/favorites.html");
-            
->>>>>>> 5818014a6e53ca5e097ef89cc0152f97b8f2c3ff
         }
         var x = document.cookie;
         console.log("printing out the cookie -------> " + x);
