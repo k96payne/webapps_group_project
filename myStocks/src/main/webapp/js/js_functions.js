@@ -172,9 +172,10 @@ function createTile(data) {
     var card5 = document.createElement("a");
     card5.onclick = function () {
         var x = document.cookie;
+        console.log(data);
         document.cookie = "itemId=" + data.itemId + ";path=/;"
         console.log(x);
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/details.html")
+            //window.location.assign("/myStocks-2.0.3.RELEASE/views/details.html")
     }
     card5.classList.add("btn");
     card5.classList.add("btn-outline-primary");

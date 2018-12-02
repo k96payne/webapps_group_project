@@ -26,11 +26,10 @@ document.getElementById("sign-in").onclick = function () {
     console.log("Checking if " + username + " exists....");
     var url = '/myStocks-2.0.3.RELEASE/myStocks/users/' + username;
     httpGetAsync(url, function (data) {
-        console.log(data);
         var encrypted = data.password;
         var decrypted = CryptoJS.AES.decrypt(encrypted, 'web-apps');
         var compare = decrypted.toString(CryptoJS.enc.Utf8);
-        if (data == 0) {
+        if (data.username == "NA") {
             console.log(username + " does not exist, must sign up!");
             document.cookie = "username=;";
             window.location.assign("/myStocks-2.0.3.RELEASE/views/signup.html");

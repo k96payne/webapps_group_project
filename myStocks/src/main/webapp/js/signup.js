@@ -34,7 +34,7 @@ document.getElementById("sign-up").onclick = function () {
 
     httpGetAsync(url, requestObject,function(data){
         if(data >= 300){
-            document.getElementById("targ").innerHTML = "Please try again....";
+            alert("Error occured, try again....");
         }
         else{
             document.cookie = "username=" + username + ";path=/;"

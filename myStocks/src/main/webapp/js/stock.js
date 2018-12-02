@@ -39,7 +39,7 @@ document.getElementById("logged").onclick = function() {
     }
 }
 
-function getItemId() {
+function getStockId() {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
         var name = cookies[i].split('=')[0].toLowerCase();
@@ -52,7 +52,7 @@ function getItemId() {
     return null;
 }
 
-var itemId = getItemId();
+var itemId = getStockId();
 
 
 
