@@ -17,7 +17,7 @@ body {
 }
 
 .card {
-  background-color: rgba(124, 219, 213, 0.8);
+  background-color: rgba(218, 105, 124, 0.8);
   border-color:  rgba(0,0,0, 0.0);
   height: 100%;
 }
@@ -41,8 +41,7 @@ body {
 .btn-primary {
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 30px;
   color: #fff;
   background-color: rgba(249, 190, 2, 0.9);
   border-color: rgba(0,0,0,0);
@@ -51,32 +50,6 @@ body {
 .btn-primary:hover {
   background-color: rgba(229, 175, 0, 0.9);
   border-color: rgba(0,0,0,0);
-}
-
-#delete-account {
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-right: 30px;
-  color: #fff;
-  background-color: rgba(245, 50, 64, 0.9);
-  border-color: rgba(0,0,0,0);
-}
-
-#delete-account:hover {
-  background-color: rgba(206, 45, 56, 0.9);
-  border-color: rgba(0,0,0,0);
-}
-
-.list-group-item {
-  margin-bottom: 1px;
-  background-color: rgba(0,0,0,0);
-  border: 1px solid rgba(0,0,0,0);
-  font-size: 1.5rem;
-  color: white;
-  font-weight: 700;
-  border-bottom-color: white;
 }
 
 #logged:hover {
@@ -92,12 +65,4 @@ body {
   background-color: transparent;
   background-image: none;
   border-color: rgb(229, 175, 0);
-}
-
-#intro{
-  font-size: 25px;
-}
-
-#siform{
-  margin-top:50px;
 }

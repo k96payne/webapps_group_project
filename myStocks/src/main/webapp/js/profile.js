@@ -69,10 +69,10 @@ httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/users/"+username, function(data){
 
 document.getElementById("update").onclick = function () {
     console.log(document.getElementById("email").innerText);
-    var email = document.getElementById("email").value;
+    var email = document.getElementById("email").innerText;
     var password = document.getElementById("password").value;
-    var fname = document.getElementById("fname").value;
-    var lname = document.getElementById("lname").value;
+    var fname = document.getElementById("fname").innerText;
+    var lname = document.getElementById("lname").innerText;
     var url = "/myStocks-2.0.3.RELEASE/myStocks/users";
 
     console.log(email, password, fname, lname);
