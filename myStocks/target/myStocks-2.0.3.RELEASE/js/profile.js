@@ -68,35 +68,33 @@ httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/users/"+username, function(data){
 
 
 document.getElementById("update").onclick = function () {
-    console.log(document.getElementById("email").innerText);
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var fname = document.getElementById("fname").value;
-    var lname = document.getElementById("lname").value;
+    var email = document.getElementById("update-email").value;
+    var password = document.getElementById("update-password").value;
+    var fname = document.getElementById("update-fname").value;
+    var lname = document.getElementById("update-lname").value;
     var url = "/myStocks-2.0.3.RELEASE/myStocks/users";
-
-    console.log(email, password, fname, lname);
 
     if(fname == null || fname == "" || lname == null || lname == "" || email == null || 
         email == "" || password == null || password == "") {
 		alert('Not all fields are filled');
 	} else {
         var requestObject = {};
+        var encrypted = CryptoJS.AES.encrypt(password, 'web-apps').toString();
         requestObject.username = username;
 	    requestObject.fname = fname;
 	    requestObject.lname = lname;
-        requestObject.password = password;
+        requestObject.password = encrypted;
 	    requestObject.email = email;
 
-    httpPutAsync(url, requestObject, function (data) {
-        console.log(data);
-            if (data >= 300) {
-                document.getElementById("targ").innerHTML = "Please try again....";
-            } else {
-                window.location.assign("/myStocks-2.0.3.RELEASE/views/profile.html")
-            }
-        });
-    }
+	    httpPutAsync(url, requestObject, function (data) {
+	        console.log(data);
+	            if (data >= 300) {
+	                alert("Something went wrong....");
+	            } else {
+	                window.location.assign("/myStocks-2.0.3.RELEASE/views/profile.html")
+	            }
+	    });
+   }
 }
 
 document.getElementById("delete").onclick = function () {

@@ -9,6 +9,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href="../css/profile.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 </head>
 
 <body>
@@ -48,14 +49,14 @@
                 <div class="card shadow-lg p-3 mb-5 rounded">
                         <form class="form-update">
                             <div style="letter-spacing: 2px;">Edit Profile</div>
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="username" id="email" class="form-control" placeholder="Email" required>
-                            <label for="password" class="sr-only">Password</label>
-                            <input type="password" id="password" class="form-control" placeholder="Password" required>
-                            <label for="fname" class="sr-only">First Name</label>
-                            <input type="username" id="fname" class="form-control" placeholder="First Name" required>
-                            <label for="Last Name" class="sr-only">Last Name</label>
-                            <input type="username" id="lname" class="form-control" placeholder="Last Name" required>
+                            <label for="update-email" class="sr-only">Email</label>
+                            <input type="username" id="update-email" class="form-control" placeholder="Email" required>
+                            <label for="update-password" class="sr-only">Password</label>
+                            <input type="password" id="update-password" class="form-control" placeholder="Password" required>
+                            <label for="update-fname" class="sr-only">First Name</label>
+                            <input type="username" id="update-fname" class="form-control" placeholder="First Name" required>
+                            <label for="update-lname" class="sr-only">Last Name</label>
+                            <input type="username" id="update-lname" class="form-control" placeholder="Last Name" required>
                             <button type="button" class="btn btn-lg btn-primary btn-block" id="update">Update</button>
                             <button type="button" class="btn btn-lg btn-primary btn-block" id="delete">Delete Profile</button>
                         </form>

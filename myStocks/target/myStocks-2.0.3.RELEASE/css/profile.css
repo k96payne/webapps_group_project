@@ -52,6 +52,22 @@ body {
   border-color: rgba(0,0,0,0);
 }
 
+#delete {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 30px;
+  color: #fff;
+  background-color: rgba(245, 50, 64, 0.9);
+  border-color: rgba(0,0,0,0);
+}
+
+#delete:hover {
+  background-color: rgba(206, 45, 56, 0.9);
+  border-color: rgba(0,0,0,0);
+}
+
 #logged:hover {
   color: white;
   background-color: rgb(229, 175, 0);
