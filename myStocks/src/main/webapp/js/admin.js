@@ -6,6 +6,9 @@ else {
     document.getElementById("logged").innerHTML = "Log Out";
 }
 
+var favorites = document.getElementById("userFavorites");
+favorites.style.display = "none";
+
 document.getElementById("logged").onclick = function() {
     if(isLoggedIn()){
         document.cookie="username=;path=/;"
@@ -58,6 +61,25 @@ document.getElementById("demote").onclick = function () {
         alert("Only the root admin can perform this operation");
         window.location.assign("/myStocks-2.0.3.RELEASE/views/admin.html");
     }
+}
+
+document.getElementById("favorites").onclick = function () {
+    while (favorites.firstChild) {
+        favorites.removeChild(favorites.firstChild);
+    }
+
+    var favoritesUsername = document.getElementById("get-favorites").value;
+    httpGetAsync("/myStocks-2.0.3.RELEASE/myStocks/favorite/" + favoritesUsername, function(data) {
+       for(var i = 0; i < data.length; i++) {
+            var favorite = document.createElement("li");
+            favorite.innerText = data[i];
+            favorite.classList.add("list-group-item");
+            favorites.appendChild(favorite);
+       }
+       if(data.length > 0) {
+        favorites.style.display = "block";
+       }
+    });
 }
 
 function httpGetAsync(theUrl, callback) {

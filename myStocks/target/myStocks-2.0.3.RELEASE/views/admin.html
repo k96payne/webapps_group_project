@@ -37,10 +37,24 @@
                             <label for="delete-username" class="sr-only">Username</label>
                             <input type="username" id="delete-username" class="form-control" placeholder="Username" required>
                             <button type="button" class="btn btn-lg btn-primary btn-block" id="delete">Delete</button>
+                            <div style="letter-spacing: 2px;">Get User's Favorites</div>
+                            <label for="get-favorites" class="sr-only">Username</label>
+                            <input type="username" id="get-favorites" class="form-control" placeholder="Username" required>
+                            <button type="button" class="btn btn-lg btn-primary btn-block" id="favorites">View Favorites</button>
                         </form>
+                        <ul class="list-group list-group-flush" id="userFavorites">
+                        </ul>
                 </div>
             </div>
         </div>
+        <!-- <div class="row" align="center">
+            <div class="col-sm-12">
+                <div class="card shadow-lg p-3 mb-5 rounded" id="userFavorites">
+                    <ul class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+        </div> -->
     </div>
 
     <script src="../js/admin.js"></script>

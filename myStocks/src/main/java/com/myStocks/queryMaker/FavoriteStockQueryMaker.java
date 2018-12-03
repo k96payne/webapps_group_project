@@ -21,4 +21,9 @@ public class FavoriteStockQueryMaker {
 				.toString();
 	}
 	
+	public String makeRemoveAllUserFavoriteStocksQuery(final String username) {
+		return new StringBuilder("DELETE FROM favoriteStocks WHERE username = \"").append(username)
+				.append("\";").toString();
+	}
+	
 }

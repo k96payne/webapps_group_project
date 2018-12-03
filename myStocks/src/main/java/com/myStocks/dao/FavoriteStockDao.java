@@ -41,4 +41,8 @@ public class FavoriteStockDao extends ADao {
 		template.execute(QUERY_MAKER.makeRemoveFavoriteStockQuery(username, tickerSymbol));
 	}
 	
+	public void removeAllFavoriteStocks(final String username) {
+		template.execute(QUERY_MAKER.makeRemoveAllUserFavoriteStocksQuery(username));
+	}
+	
 }

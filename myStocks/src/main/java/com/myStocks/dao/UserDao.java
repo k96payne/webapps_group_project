@@ -52,6 +52,7 @@ public class UserDao extends ADao {
 	
 	public void deleteUser(final String username) {
 		template.execute(QUERY_MAKER.makeDeleteUserQuery(username));
+		FavoriteStockDao.newFavoriteStockDao().removeAllFavoriteStocks(username);
 	}
 	
 	public void promoteUser(final String username) {
