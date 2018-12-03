@@ -38,7 +38,7 @@ document.getElementById("sign-up").onclick = function () {
         }
         else{
             document.cookie = "username=" + username + ";path=/;"
-            window.location.assign("/myStocks-2.0.3.RELEASE/views/favorites.html")
+            window.location.assign("/myStocks-2.0.3.RELEASE/index.html")
         }
     });
 }
